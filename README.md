@@ -2,7 +2,7 @@
 Repositório criado para gerenciar os projetos e aulas de Linguagens I.
 
 # Desenvolvedor:
-## Gabriel Domingues Garofalo
+- Gabriel Domingues Garofalo
 
 # Principais Linguagens:
 - Java
