@@ -5,9 +5,10 @@ public class Usuarios {
    private String senha;
    private String email;
 
-   public Usuarios(String nome, String senha, String email){
-       this.nome = nome;
-       this.senha = senha;
-       this.email = email;
+   public Usuarios(String nomeUsuario, String senhaUsuario, String emailUsuario){
+        this.nome = nomeUsuario;
+        this.senha = senhaUsuario;
+        this.email = emailUsuario;
    }
+
 }
