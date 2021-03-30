@@ -5,10 +5,16 @@ public class Usuarios {
    private String senha;
    private String email;
 
-   public Usuarios(String nomeUsuario, String senhaUsuario, String emailUsuario){
+   public Usuarios(String nomeUsuario){
         this.nome = nomeUsuario;
-        this.senha = senhaUsuario;
-        this.email = emailUsuario;
    }
 
+    @Override
+    public String toString() {
+        return "Usuarios{" +
+                "nome='" + nome + '\'' +
+                ", senha='" + senha + '\'' +
+                ", email='" + email + '\'' +
+                '}';
+    }
 }

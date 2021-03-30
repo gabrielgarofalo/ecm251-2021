@@ -5,10 +5,10 @@ public class Contas {
     private int idConta;
     private double saldo;
 
-    public Contas(String nomeUsuario, String senhaUsuario, String emailUsuario,int idConta, double saldoInicial){
+    public Contas(String nomeUsuario,int idConta, double saldoInicial){
         this.saldo = saldoInicial;
         this.idConta = idConta;
-        this.usuario = new Usuarios(nomeUsuario, senhaUsuario, emailUsuario);
+        this.usuario = new Usuarios(nomeUsuario);
     }
 
     public void depositar(double valor) {
@@ -29,5 +29,18 @@ public class Contas {
             return true;
         }
         return false;
+    }
+
+    public double getSaldo() {
+        return this.saldo;
+    }
+
+    @Override
+    public String toString() {
+        return "Contas{" +
+                "usuario=" + usuario +
+                ", idConta=" + idConta +
+                ", saldo=" + saldo +
+                '}';
     }
 }
