@@ -31,8 +31,10 @@ public class Contas {
     public boolean transferirDinheiro(Contas destino, double valor) {
         if(this.sacar(valor)){
             destino.depositar(valor);
+            System.out.println("Trnsferência Realizada com Sucesso!");
             return true;
         }
+        System.out.println("Sem saldo suficiente!");
         return false;
     }
 
