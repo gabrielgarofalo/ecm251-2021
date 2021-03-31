@@ -42,6 +42,10 @@ public class Contas {
         return this.saldo;
     }
 
+    public int getIdConta() {
+        return this.idConta;
+    }
+
     @Override
     public String toString() {
         return "Contas{" +

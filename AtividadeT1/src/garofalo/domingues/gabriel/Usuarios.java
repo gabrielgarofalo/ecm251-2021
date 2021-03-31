@@ -9,6 +9,10 @@ public class Usuarios {
        this.nome = nomeUsuario;
    }
 
+    public String getNome() {
+        return this.nome;
+    }
+
     @Override
     public String toString() {
         return "Usuarios{" +
