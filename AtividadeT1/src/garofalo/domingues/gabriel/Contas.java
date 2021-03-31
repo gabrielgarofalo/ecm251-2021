@@ -4,10 +4,15 @@ public class Contas {
     private Usuarios usuario;
     private int idConta;
     private double saldo;
+    private static int id = 1;
 
-    public Contas(String nomeUsuario,int idConta, double saldoInicial){
+    public static int getProximoId() {
+        return id++;
+    }
+
+    public Contas(String nomeUsuario, double saldoInicial){
         this.saldo = saldoInicial;
-        this.idConta = idConta;
+        this.idConta = getProximoId();
         this.usuario = new Usuarios(nomeUsuario);
     }
 

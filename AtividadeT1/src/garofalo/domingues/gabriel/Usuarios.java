@@ -6,7 +6,7 @@ public class Usuarios {
    private String email;
 
    public Usuarios(String nomeUsuario){
-        this.nome = nomeUsuario;
+       this.nome = nomeUsuario;
    }
 
     @Override
