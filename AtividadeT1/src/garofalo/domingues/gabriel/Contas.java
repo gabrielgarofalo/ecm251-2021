@@ -15,12 +15,11 @@ public class Contas {
         this.idConta = getProximoId();
         this.usuario = new Usuarios(nomeUsuario);
     }
-
-    public void depositar(double valor) {
+    void depositar(double valor) {
         this.saldo += valor;
     }
 
-    public boolean sacar(double valor) {
+    boolean sacar(double valor) {
         if(valor <= this.saldo) {
             this.saldo -= valor;
             return true;
@@ -28,13 +27,11 @@ public class Contas {
         return false;
     }
 
-    public boolean transferirDinheiro(Contas destino, double valor) {
+    boolean transferirDinheiro(Contas destino, double valor) {
         if(this.sacar(valor)){
             destino.depositar(valor);
-            System.out.println("Trnsferência Realizada com Sucesso!");
             return true;
         }
-        System.out.println("Sem saldo suficiente!");
         return false;
     }
 
