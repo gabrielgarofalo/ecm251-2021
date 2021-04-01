@@ -9,8 +9,8 @@ public class Transacoes {
         return r . nextInt (( max - min ) + 1 ) + min ;
     }
 
-    public String criarQRCode(int iD, String nome, double valor){
-        return iD + ";" + nome + ";" + valor + ";" + getRandomNumberInRange(1000,9999);
+    public String criarQRCode(Contas conta, double valor){
+        return conta.getIdConta() + ";" + conta.getUsuario().getNome() + ";" + valor + ";" + getRandomNumberInRange(1000,9999);
     }
 
     public void pagamento(Contas pagador, Contas recebedor, String s){

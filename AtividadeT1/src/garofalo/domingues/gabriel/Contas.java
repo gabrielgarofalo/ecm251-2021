@@ -10,10 +10,10 @@ public class Contas {
         return id++;
     }
 
-    public Contas(String nomeUsuario, double saldoInicial){
+    public Contas(Usuarios usuario, double saldoInicial){
         this.saldo = saldoInicial;
         this.idConta = getProximoId();
-        this.usuario = new Usuarios(nomeUsuario);
+        this.usuario = usuario;
     }
     void depositar(double valor) {
         this.saldo += valor;
@@ -25,6 +25,10 @@ public class Contas {
             return true;
         }
         return false;
+    }
+
+    public Usuarios getUsuario() {
+        return usuario;
     }
 
     boolean transferirDinheiro(Contas destino, double valor) {

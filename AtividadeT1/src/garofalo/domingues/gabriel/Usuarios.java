@@ -7,6 +7,8 @@ public class Usuarios {
 
    public Usuarios(String nomeUsuario){
        this.nome = nomeUsuario;
+       this.senha = senha;
+       this.email = email;
    }
 
     public String getNome() {
