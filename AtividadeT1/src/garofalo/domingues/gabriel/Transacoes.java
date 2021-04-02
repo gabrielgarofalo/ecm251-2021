@@ -18,12 +18,12 @@ public class Transacoes {
 
     public boolean pagamento(Contas pagador, Contas recebedor, String s){
         String [] dados = s.split(";"); // Dividir string em uma lista com cada campo um dado
-        if((recebedor.getUsuario().getNome().equals(dados[1])) && (Integer.toString(recebedor.getIdConta()).equals(dados[0])) && (pagador.getSaldo() >= Double.parseDouble(dados[2]))){ // Verificação de nome, id e saldo
+        if((recebedor.getUsuario().getNome().equals(dados[1])) && (Integer.toString(recebedor.getIdConta()).equals(dados[0])) && (pagador.getSaldo() >= Double.parseDouble(dados[2]))){ // Verificação de nome, id e saldo suficinete
             pagador.transferirDinheiro(recebedor, Double.parseDouble(dados[2])); // Trnsferência entre as contas
-            //System.out.println("Operação Válida!");
+            System.out.println("Operação Realizada com Sucesso!");
             return true;
         } else{
-            //System.out.println("Operação Inválida!");
+            System.out.println("Operação Inválida!");
             return false;
         }
     }

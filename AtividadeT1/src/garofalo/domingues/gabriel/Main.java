@@ -26,11 +26,15 @@ public class Main {
 
         String op1 = transacao.criarQRCode(c1,250); // Usuário 1 gera uma operação de recebimento de 250
 
+        //System.out.println(op1);
+
         transacao.pagamento(c2, c1, op1); // Usário 2 paga a operação
         transacao.pagamento(c3, c1, op1); // Usário 3 paga a operação
         transacao.pagamento(c2, c1, op1); // Usário 2 paga a operação novamente
 
         String op2 = transacao.criarQRCode(c2,1000); // Usuário 2 gera uma operação de recebimento de 1000
+
+        //System.out.println(op2);
 
         transacao.pagamento(c3, c2, op2); // Usário 3 paga a operação
 
