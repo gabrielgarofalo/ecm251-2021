@@ -13,9 +13,16 @@ public class Transacoes {
         return conta.getIdConta() + ";" + conta.getUsuario().getNome() + ";" + valor + ";" + getRandomNumberInRange(1000,9999);
     }
 
-    public void pagamento(Contas pagador, Contas recebedor, String s){
+    public boolean pagamento(Contas pagador, Contas recebedor, String s){
         String [] dados = s.split(";");
-        pagador.transferirDinheiro(recebedor, Double.parseDouble(dados[2]));
+        if((recebedor.getUsuario().getNome().equals(dados[1])) && (Integer.toString(recebedor.getIdConta()).equals(dados[0])) && (pagador.getSaldo() >= Double.parseDouble(dados[2]))){
+            pagador.transferirDinheiro(recebedor, Double.parseDouble(dados[2]));
+            System.out.println("Operação Válida!");
+            return true;
+        } else{
+            System.out.println("Operação Inválida!");
+            return false;
+        }
     }
 
 }

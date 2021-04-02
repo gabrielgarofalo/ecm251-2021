@@ -23,12 +23,18 @@ public class Main {
         //System.out.println("Conta 1:" + c1.toString());
         //System.out.println("Conta 2:" + c2.toString());
         //System.out.println("Conta 3:" + c3.toString());
-        //Transacoes a = new Transacoes();
-        //System.out.println(a.criarQRCode(c1, 2000));
+        Transacoes a = new Transacoes();
+        System.out.println(a.criarQRCode(c1, 2000));
         //String [] dados = a.criarQRCode(17, "ARROCHA", 8547.65).split(";");
         //System.out.println(dados[0]);
-        //a.pagamento(c1, c2,"2;Usuario2;200.0;9261");
-        //System.out.println("Conta 1:" + c1.toString());
-        //System.out.println("Conta 2:" + c2.toString());
+
+        a.pagamento(c2, c1,"1;Usuario1;250.0;9328");
+        a.pagamento(c3, c1,"1;Usuario1;250.0;9328");
+        a.pagamento(c2, c1,"1;Usuario1;250.0;9328");
+        a.pagamento(c3, c2,"2;Usuario2;1000.0;9328");
+
+        System.out.println("Conta 1:" + c1.toString());
+        System.out.println("Conta 2:" + c2.toString());
+        System.out.println("Conta 3:" + c3.toString());
     }
 }
