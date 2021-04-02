@@ -1,3 +1,6 @@
+// 19.01229-2 Gabriel Domingues Garofalo
+// 19.02140-2 Leonardo Bezerra Celestino Zollner
+
 package garofalo.domingues.gabriel;
 
 public class Main {
