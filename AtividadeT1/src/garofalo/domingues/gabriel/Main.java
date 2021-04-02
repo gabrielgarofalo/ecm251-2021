@@ -3,36 +3,32 @@ package garofalo.domingues.gabriel;
 public class Main {
 
     public static void main(String[] args) {
-        Usuarios user1 = new Usuarios("Usuario1");
-        Usuarios user2 = new Usuarios("Usuario2");
-        Usuarios user3 = new Usuarios("Usuario3");
+        Usuarios user1 = new Usuarios("All Might");
+        Usuarios user2 = new Usuarios("One For All");
+        Usuarios user3 = new Usuarios("Bakugo");
 
         Contas c1 = new Contas(user1, 1000);
         Contas c2 = new Contas(user2, 250);
         Contas c3 = new Contas(user3, 3000);
 
+        System.out.println("Estado Inical:");
         System.out.println("Conta 1:" + c1.toString());
         System.out.println("Conta 2:" + c2.toString());
         System.out.println("Conta 3:" + c3.toString());
 
-        //c1.transferirDinheiro(c2, 500);
-        //c2.transferirDinheiro(c2,200);
-        //c3.transferirDinheiro(c1,100);
-        //c3.transferirDinheiro(c1,10000000);
+        Transacoes transacao = new Transacoes();
 
-        //System.out.println("Conta 1:" + c1.toString());
-        //System.out.println("Conta 2:" + c2.toString());
-        //System.out.println("Conta 3:" + c3.toString());
-        Transacoes a = new Transacoes();
-        System.out.println(a.criarQRCode(c1, 2000));
-        //String [] dados = a.criarQRCode(17, "ARROCHA", 8547.65).split(";");
-        //System.out.println(dados[0]);
+        String op1 = transacao.criarQRCode(c1,250);
 
-        a.pagamento(c2, c1,"1;Usuario1;250.0;9328");
-        a.pagamento(c3, c1,"1;Usuario1;250.0;9328");
-        a.pagamento(c2, c1,"1;Usuario1;250.0;9328");
-        a.pagamento(c3, c2,"2;Usuario2;1000.0;9328");
+        transacao.pagamento(c2, c1, op1);
+        transacao.pagamento(c3, c1, op1);
+        transacao.pagamento(c2, c1, op1);
 
+        String op2 = transacao.criarQRCode(c2,1000);
+
+        transacao.pagamento(c3, c2, op2);
+
+        System.out.println("Estado Final:");
         System.out.println("Conta 1:" + c1.toString());
         System.out.println("Conta 2:" + c2.toString());
         System.out.println("Conta 3:" + c3.toString());

@@ -17,10 +17,10 @@ public class Transacoes {
         String [] dados = s.split(";");
         if((recebedor.getUsuario().getNome().equals(dados[1])) && (Integer.toString(recebedor.getIdConta()).equals(dados[0])) && (pagador.getSaldo() >= Double.parseDouble(dados[2]))){
             pagador.transferirDinheiro(recebedor, Double.parseDouble(dados[2]));
-            System.out.println("Operação Válida!");
+            //System.out.println("Operação Válida!");
             return true;
         } else{
-            System.out.println("Operação Inválida!");
+            //System.out.println("Operação Inválida!");
             return false;
         }
     }
