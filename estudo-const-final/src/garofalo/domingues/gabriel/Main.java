@@ -31,7 +31,7 @@ public class Main {
 		System.out.println("Ola de Estudante como Pessoa:" + pessoa1.Ola());
 		System.out.println("Ola de Estudante como Estudante:" + estudante3.Ola());
 		System.out.println("Ola de Estudante como Object:" + ((Estudante)estudante4).Ola());
-		System.out.println("Ola de Estudante como Object:" + estudante4.Ola());
+		//System.out.println("Ola de Estudante como Object:" + estudante4.Ola());
 
 		// Não é possível fazer, pois todo Estudante é uma Pesoa, mas Pessoa não é um Estudante.
 		// Estudante estudante_para_exemplo = new Pessoa("Murilo", "123");
