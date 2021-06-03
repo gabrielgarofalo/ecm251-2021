@@ -1,7 +1,6 @@
 package garofalo.domingues.gabriel;
 
 public class Account {
-    private Client cliente;
     private double balance;
 
     public Account(double balance) {
@@ -20,18 +19,6 @@ public class Account {
         return false;
     }
 
-    boolean transfer(Account destino, double valor) {
-        if(this.withdraw(valor)){
-            destino.deposit(valor);
-            return true;
-        }
-        return false;
-    }
-
-    public Client getCliente() {
-        return cliente;
-    }
-
     public double getBalance() {
         return balance;
     }
@@ -39,8 +26,7 @@ public class Account {
     @Override
     public String toString() {
         return "Account{" +
-                "cliente=" + cliente +
-                ", balance=" + balance +
+                "balance=" + balance +
                 '}';
     }
 }
