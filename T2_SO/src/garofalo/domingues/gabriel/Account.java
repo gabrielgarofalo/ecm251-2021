@@ -2,6 +2,7 @@ package garofalo.domingues.gabriel;
 
 public class Account {
     private double balance;
+    private Client client;
 
     public Account(double balance) {
         this.balance = balance;
@@ -21,6 +22,10 @@ public class Account {
 
     public double getBalance() {
         return balance;
+    }
+
+    public Client getClient() {
+        return client;
     }
 
     @Override

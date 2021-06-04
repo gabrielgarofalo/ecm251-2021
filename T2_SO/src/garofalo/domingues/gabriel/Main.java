@@ -1,17 +1,38 @@
 package garofalo.domingues.gabriel;
+
 import sun.misc.Signal;
+import java.lang.reflect.Array;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Random;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException{
         Account account = new Account(1000);
-        Client clients[] = {
+        System.out.println("Conta criada com saldo inicial de: "+ account.getBalance());
+        List<Client> clients= Arrays.asList(
                 new Client("Augustus", account),
                 new Client("Lucius", account),
                 new Client("Claudius", account),
-                new Client("Tiberius", account)};
+                new Client("Tiberius", account));
 
-        for(Client client:clients)
-            client.execute();
-            System.out.println();
+        Signal.handle(new Signal("INT"), sig -> {
+            System.out.println("Terminando a simulação");
+            for(Client client:clients){
+                System.out.println(client.getNome() + " encerrando...");
+                client.interrupt();
+            }
+        });
+
+        for(Client client:clients){
+            client.start();
+        }
+
+        while(true){
+            Random aleatorio = new Random();
+            Client pessoa = clients.get(aleatorio.nextInt(clients.size()));
+            pessoa.execute(pessoa.getNome());
+            Thread.sleep(500);
+        }
     }
 }

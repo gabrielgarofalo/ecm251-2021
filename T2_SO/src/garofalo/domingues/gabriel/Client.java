@@ -5,7 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
-public class Client {
+public class Client extends Thread{
     private String nome;
     private Account conta;
 
@@ -22,14 +22,17 @@ public class Client {
         return conta;
     }
 
-    double[] valores = {10, 20, 50, 100};
+    List<Double> valores = Arrays.asList(10.0, 20.0, 50.0, 100.0);
 
     Random aleatorio = new Random();
-    public void execute(){
+    public void execute(String nome){
+        double valor = valores.get(aleatorio.nextInt(valores.size()));
         if(aleatorio.nextBoolean()){
-            getConta().deposit(aleatorio.nextInt(valores.length));
+            getConta().deposit(valor);
+            System.out.println("Cliente: " + nome + " depositou " + valor + "\nConta: saldo atualizado de " + conta.getBalance());
         }else{
-            getConta().withdraw(aleatorio.nextInt(valores.length));
+            getConta().withdraw(valor);
+            System.out.println("Cliente: " + nome + " retirou " + valor + "\nConta: saldo atualizado de " + conta.getBalance());
         }
     }
 
