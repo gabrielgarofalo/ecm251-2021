@@ -6,14 +6,6 @@ with open('m.dfa.txt') as dfa_file:
     dfa_data = dfa_file.read()
 
 dfa = eval(dfa_data)
-# Para conferir o conteúdo
-#print(dfa)
-#print(dfa['states'])
-#print(dfa['initial_state'])
-#print(dfa['sigma'])
-#print(dfa['delta'])
-#print(dfa['final_states'])
-
 
 def simular_dfa(dfa,entrada):
     estado = dfa['initial_state']
@@ -27,9 +19,10 @@ def simular_dfa(dfa,entrada):
             break
         if estado not in dfa['states']:
             print(f'ERRO: O estado {estado} não pertence ao conjunto de estados do autômato!')
-            estado = dfa['delta'][(estado, f'{c}')]
             break
-        if estado not in dfa['delta'].keys(): # ver em delta.keys() se [e possivel fazer uma transicao
+        print(f"({estado}, '{c}') -> {dfa['delta'][(estado,c)]}")
+        estado = dfa['delta'][(estado, f'{c}')]
+        if (estado, f'{c}') not in dfa['delta'].keys():
             print(f'ERRO: Não foi possível realizar a transição do estado {estado} com entrada {c}')
             break
     if estado in dfa['final_states'] and l == []:
@@ -39,4 +32,11 @@ def simular_dfa(dfa,entrada):
     else:
         print(f'A cadeia {entrada} foi rejeitada pelo autômato!')
 
-simular_dfa(dfa, '1110')
+op = input("Bem-Vindo! Gostaria de testar uma cadeia? (s/n):").lower()
+while op != 's' and op!= 'n':
+    op = input("Digite uma opção válida! (s/n):").lower()
+if op == 's':
+    while op != 'n':
+        cadeia = input("Digite a cadeia: ")
+        simular_dfa(dfa, cadeia)
+        op = input("Gostaria de testar outa cadeia? (s/n):").lower()
