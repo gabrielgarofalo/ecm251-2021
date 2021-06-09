@@ -2,10 +2,6 @@
 # Gabriel Domingues Garofalo 19.01229-2
 # Gabriel Moreira Silva 19.00397-8
 # Leonardo Bezerra Celestino Zollner 19.02140-2
-with open('m.dfa.txt') as dfa_file:
-    dfa_data = dfa_file.read()
-
-dfa = eval(dfa_data)
 
 def simular_dfa(dfa,entrada):
     estado = dfa['initial_state']
@@ -36,6 +32,10 @@ op = input("Bem-Vindo! Gostaria de testar uma cadeia? (s/n):").lower()
 while op != 's' and op!= 'n':
     op = input("Digite uma opção válida! (s/n):").lower()
 if op == 's':
+    arq = input("Digite o nome do arquivo do autômato: ")
+    with open(f'{arq}') as dfa_file:
+        dfa_data = dfa_file.read()
+    dfa = eval(dfa_data)
     while op != 'n':
         cadeia = input("Digite a cadeia: ")
         simular_dfa(dfa, cadeia)
