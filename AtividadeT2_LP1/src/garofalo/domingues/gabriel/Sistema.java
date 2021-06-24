@@ -85,7 +85,9 @@ public class Sistema {
                 System.out.println("Horário: " + resultado.getHorario());
                 break;
             case 3:
-                System.out.println("caso 3");
+                for (Membro membro : Membros) {
+
+                }
                 break;
             default:
                 System.out.println("Digite uma opção válida!");
