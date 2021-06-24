@@ -14,8 +14,7 @@ public class Big_Brothers extends Membro implements PostarMensagem {
     @Override
     public String postaMensagem() {
         if (this.getHorario() == Turnos.Regular){
-            return "Sempre\n" +
-                    "ajudando as pessoas membros ou não S2!";
+            return "Sempre ajudando as pessoas e membros ou não S2!";
         }
         else{
             return "...";
