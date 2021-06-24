@@ -73,7 +73,16 @@ public class Sistema {
                 }
                 break;
             case 2:
-                System.out.println("caso 2");
+                System.out.println("Digite seu nome de usuário:");
+                String nome_usuario = scanner.next();
+                Membro resultado = null;
+                for (Membro membro : Membros) {
+                    if (nome_usuario.equals(membro.getNome_usuario())) {
+                        resultado = membro;
+                        break;
+                    }
+                }
+                System.out.println("Horário: " + resultado.getHorario());
                 break;
             case 3:
                 System.out.println("caso 3");
