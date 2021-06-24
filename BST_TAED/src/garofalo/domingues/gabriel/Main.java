@@ -1,5 +1,7 @@
 package garofalo.domingues.gabriel;
 
+import static garofalo.domingues.gabriel.Node_Tree.rangeSumBST;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -68,7 +70,7 @@ public class Main {
 
         demos.firstChild = market;
 
-        ruby.SomaTamanho();
+        System.out.println(rangeSumBST(x.root, market.value, slide01.value));
 
         //x.insert_root(5);
 

@@ -1,11 +1,15 @@
 package garofalo.domingues.gabriel;
 
+import java.util.LinkedList;
+import java.util.Queue;
+
 public class Node_Tree {
     String item;
     Integer value;
     Node_Tree parent;
     Node_Tree firstChild;
     Node_Tree next;
+    Node_Tree left, right;
 
     public Node_Tree(String item, Integer value) {
         this.item = item;
@@ -102,15 +106,62 @@ public class Node_Tree {
             System.out.println("Este nó é root, não tem pai...");
     }
 
-    public void SomaTamanho(){
-        int soma = 0;
-        Node_Tree trab = this.firstChild;
-        soma = soma + trab.parent.value;
-        while (trab != null ) {
-            trab.posorder();
-            soma = soma + trab.value;
-            trab = trab.next;
+    static int sum = 0;
+
+    static int rangeSumBST(Node_Tree root, int low,
+                           int high)
+    {
+
+        // Base Case
+        if (root == null)
+            return 0;
+
+        // Stores the nodes while
+        // performing level order traversal
+        Queue<Node_Tree> q = new LinkedList<Node_Tree>();
+
+        // Push the root node
+        // into the queue
+        q.add(root);
+
+        // Iterate until queue is empty
+        while (q.isEmpty() == false)
+        {
+
+            // Stores the front
+            // node of the queue
+            Node_Tree curr = q.peek();
+            q.remove();
+
+            // If the value of the node
+            // lies in the given range
+            if (curr.value >= low &&
+                    curr.value <= high)
+            {
+
+                // Add it to sum
+                sum += curr.value;
+            }
+
+            // If the left child is
+            // not null and exceeds low
+            if (curr.left != null &&
+                    curr.value > low)
+
+                // Insert into queue
+                q.add(curr.left);
+
+            // If the right child is not
+            // null and exceeds low
+            if (curr.right != null &&
+                    curr.value < high)
+
+                // Insert into queue
+                q.add(curr.right);
         }
-        System.out.print("Soma: " + soma);
+
+        // Return the resultant sum
+        return sum;
     }
+
 }

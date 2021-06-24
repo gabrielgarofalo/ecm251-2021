@@ -78,7 +78,7 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.SumOfNodes">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true">
       <option name="MAIN_CLASS_NAME" value="garofalo.domingues.gabriel.Main" />
       <module name="BST_TAED" />
@@ -89,8 +89,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="SumOfNodes" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="garofalo.domingues.gabriel.SumOfNodes" />
+      <module name="BST_TAED" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="garofalo.domingues.gabriel.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.SumOfNodes" />
         <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
@@ -116,5 +130,6 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>
