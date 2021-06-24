@@ -16,12 +16,21 @@ public abstract class Membro {
         this.horario = horario;
     }
 
+    public String getNome_usuario() {
+        return nome_usuario;
+    }
+
+    public Turnos getHorario() {
+        return horario;
+    }
+
     @Override
     public String toString() {
         return "Membro{" +
                 "nome_usuario='" + nome_usuario + '\'' +
                 ", email='" + email + '\'' +
-                ", funcao='" + funcao + '\'' +
+                ", funcao=" + funcao +
+                ", horario=" + horario +
                 '}';
     }
 }
