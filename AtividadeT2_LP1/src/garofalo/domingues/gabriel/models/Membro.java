@@ -1,14 +1,19 @@
 package garofalo.domingues.gabriel.models;
 
-public abstract class Membro {
-    String nome_usuario;
-    String email;
-    String funcao;
+import garofalo.domingues.gabriel.enumeracao.TiposMembros;
+import garofalo.domingues.gabriel.enumeracao.Turnos;
 
-    public Membro(String nome_usuario, String email, String funcao) {
+public abstract class Membro {
+    protected String nome_usuario;
+    protected String email;
+    protected TiposMembros funcao;
+    protected Turnos horario;
+
+    public Membro(String nome_usuario, String email, TiposMembros funcao, Turnos horario) {
         this.nome_usuario = nome_usuario;
         this.email = email;
         this.funcao = funcao;
+        this.horario = horario;
     }
 
     @Override
