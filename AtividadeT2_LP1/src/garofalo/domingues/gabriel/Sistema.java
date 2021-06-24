@@ -3,6 +3,7 @@ package garofalo.domingues.gabriel;
 import java.util.Scanner;
 import java.util.ArrayList;
 
+import garofalo.domingues.gabriel.interfaces.PostarMensagem;
 import garofalo.domingues.gabriel.models.*;
 
 public class Sistema {
@@ -86,7 +87,7 @@ public class Sistema {
                 break;
             case 3:
                 for (Membro membro : Membros) {
-
+                    System.out.println(membro);
                 }
                 break;
             default:

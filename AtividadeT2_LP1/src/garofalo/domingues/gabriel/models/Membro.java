@@ -3,7 +3,7 @@ package garofalo.domingues.gabriel.models;
 import garofalo.domingues.gabriel.enumeracao.TiposMembros;
 import garofalo.domingues.gabriel.enumeracao.Turnos;
 
-public abstract class Membro {
+public abstract class Membro{
     protected String nome_usuario;
     protected String email;
     protected TiposMembros funcao;
@@ -18,6 +18,10 @@ public abstract class Membro {
 
     public String getNome_usuario() {
         return nome_usuario;
+    }
+
+    public TiposMembros getFuncao() {
+        return funcao;
     }
 
     public Turnos getHorario() {

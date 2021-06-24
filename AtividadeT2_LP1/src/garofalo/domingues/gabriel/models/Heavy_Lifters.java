@@ -5,13 +5,17 @@ import garofalo.domingues.gabriel.enumeracao.Turnos;
 import garofalo.domingues.gabriel.interfaces.PostarMensagem;
 
 public class Heavy_Lifters extends Membro implements PostarMensagem {
+
+    protected String mensagem;
+
     public Heavy_Lifters(String nome, String email){
         super(nome, email, TiposMembros.Heavy_Lifters, Turnos.Regular);
+        this.mensagem = mensagem();
     }
 
     @Override
-    public String mensagem(Membro membro) {
-        if (membro.getHorario() == Turnos.Regular){
+    public String mensagem() {
+        if (this.getHorario() == Turnos.Regular){
             return "Podem contar conosco!";
         }
         else{
