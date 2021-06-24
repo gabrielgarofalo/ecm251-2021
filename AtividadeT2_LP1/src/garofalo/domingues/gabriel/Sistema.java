@@ -90,7 +90,7 @@ public class Sistema {
                     menu();
                 case 3:
                     for (Membro membro : Membros) {
-                        System.out.println(membro.getNome_usuario() + " : " + membro.);
+                        System.out.println(membro.getNome_usuario() + " : " + membro.getMessage());
                     }
                     menu();
                 default:

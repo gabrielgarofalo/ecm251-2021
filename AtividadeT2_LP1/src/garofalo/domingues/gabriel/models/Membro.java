@@ -8,6 +8,7 @@ public abstract class Membro{
     protected String email;
     protected TiposMembros funcao;
     protected Turnos horario;
+    protected String message;
 
     public Membro(String nome_usuario, String email, TiposMembros funcao, Turnos horario) {
         this.nome_usuario = nome_usuario;
@@ -26,6 +27,10 @@ public abstract class Membro{
 
     public Turnos getHorario() {
         return horario;
+    }
+
+    public String getMessage() {
+        return message;
     }
 
     @Override
