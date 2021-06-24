@@ -8,7 +8,7 @@ public abstract class Membro{
     protected String email;
     protected TiposMembros funcao;
     protected Turnos horario;
-    protected String message;
+    protected String mensagem = null;
 
     public Membro(String nome_usuario, String email, TiposMembros funcao, Turnos horario) {
         this.nome_usuario = nome_usuario;
@@ -21,16 +21,16 @@ public abstract class Membro{
         return nome_usuario;
     }
 
-    public TiposMembros getFuncao() {
-        return funcao;
-    }
-
     public Turnos getHorario() {
         return horario;
     }
 
-    public String getMessage() {
-        return message;
+    public String getMensagem() {
+        return mensagem;
+    }
+
+    public void setMensagem(String mensagem) {
+        this.mensagem = mensagem;
     }
 
     @Override
@@ -40,6 +40,7 @@ public abstract class Membro{
                 ", email='" + email + '\'' +
                 ", funcao=" + funcao +
                 ", horario=" + horario +
+                ", mensagem='" + mensagem + '\'' +
                 '}';
     }
 }

@@ -6,15 +6,13 @@ import garofalo.domingues.gabriel.interfaces.PostarMensagem;
 
 public class Script_Guys extends Membro implements PostarMensagem {
 
-    protected String mensagem;
-
     public Script_Guys(String nome, String email){
         super(nome, email, TiposMembros.Script_Guys, Turnos.Regular);
-        this.mensagem = mensagem();
+        super.mensagem = postaMensagem();
     }
 
     @Override
-    public String mensagem() {
+    public String postaMensagem() {
         if (this.getHorario() == Turnos.Regular){
             return "Prazer em ajudar novos amigos de código!";
         }

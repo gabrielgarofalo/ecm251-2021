@@ -6,15 +6,13 @@ import garofalo.domingues.gabriel.interfaces.PostarMensagem;
 
 public class Mobile_Members extends Membro implements PostarMensagem {
 
-    protected String mensagem;
-
     public Mobile_Members(String nome, String email){
         super(nome, email, TiposMembros.Mobile_Members, Turnos.Regular);
-        this.mensagem = mensagem();
+        super.mensagem = postaMensagem();
     }
 
     @Override
-    public String mensagem() {
+    public String postaMensagem() {
         if (this.getHorario() == Turnos.Regular){
             return "Happy Coding!";
         }
