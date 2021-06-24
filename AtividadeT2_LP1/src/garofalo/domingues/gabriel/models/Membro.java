@@ -1,6 +1,6 @@
 package garofalo.domingues.gabriel.models;
 
-public class Membro {
+public abstract class Membro {
     String nome_usuario;
     String email;
     String funcao;
