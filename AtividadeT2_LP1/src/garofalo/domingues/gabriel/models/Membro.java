@@ -26,6 +26,10 @@ public abstract class Membro implements Apresentacao {
         return horario;
     }
 
+    public TiposMembros getFuncao() {
+        return funcao;
+    }
+
     public void setHorario(Turnos horario) {
         this.horario = horario;
     }

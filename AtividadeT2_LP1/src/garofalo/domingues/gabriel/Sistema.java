@@ -1,9 +1,11 @@
 package garofalo.domingues.gabriel;
 
+import java.io.FileWriter;
 import java.sql.SQLOutput;
 import java.util.Scanner;
 import java.util.ArrayList;
 
+import garofalo.domingues.gabriel.enumeracao.TiposMembros;
 import garofalo.domingues.gabriel.enumeracao.Turnos;
 import garofalo.domingues.gabriel.interfaces.PostarMensagem;
 import garofalo.domingues.gabriel.models.*;
@@ -16,12 +18,12 @@ public class Sistema {
     private Script_Guys script;
     private Big_Brothers big;
     
-    public Sistema(){
+    public Sistema() throws Exception {
         scanner = new Scanner(System.in);
         menu();
     }
 
-    public void menu() {
+    public void menu() throws Exception{
         System.out.println("Bem-Vindo!");
         System.out.println("Escolha uma das opções:");
         System.out.println("1 - Registrar Membros");
@@ -30,6 +32,7 @@ public class Sistema {
         System.out.println("4 - Mudar Horário de Trabalho");
         System.out.println("5 - Remover Membros");
         System.out.println("6 - Listagem dos usuários");
+        System.out.println("7 - Gerar arquivo com membros");
         System.out.println("0 - Sair");
         System.out.println("Opção desejada:");
         int opcao = scanner.nextInt();
@@ -82,7 +85,7 @@ public class Sistema {
                     }
                     menu();
                 case 2:
-                    System.out.println("Digite seu nome de usuário:");
+                    System.out.println("Digite seu nome de usuário: ");
                     String nome_usuario = scanner.next();
                     Membro resultado = null;
                     for (Membro membro : Membros) {
@@ -99,21 +102,29 @@ public class Sistema {
                     }
                     menu();
                 case 4:
-                    System.out.println("Horário Atual :" + Membros.get(0).getHorario());
+                    System.out.println("Horário Atual : " + Membros.get(0).getHorario());
                     System.out.println("Deseja mesmo mudar o horário? (s/n)");
                     String escolha = scanner.next();
-                    if (escolha.equals('y')) {
+                    if (escolha.equals("s")) {
                         if (Membros.get(0).getHorario() == Turnos.Regular) {
                             for (Membro membro : Membros) {
                                 membro.setHorario(Turnos.Extra);
+                                if (membro.getFuncao() == TiposMembros.Mobile_Members) {membro.setMensagem(mobile.postaMensagem());}
+                                else if (membro.getFuncao() == TiposMembros.Heavy_Lifters) {membro.setMensagem(heavy.postaMensagem());}
+                                else if (membro.getFuncao() == TiposMembros.Script_Guys) {membro.setMensagem(script.postaMensagem());}
+                                else if (membro.getFuncao() == TiposMembros.Big_Brothers) {membro.setMensagem(big.postaMensagem());}
                             }
                         } else {
                             for (Membro membro : Membros) {
                                 membro.setHorario(Turnos.Regular);
+                                if (membro.getFuncao() == TiposMembros.Mobile_Members) {membro.setMensagem(mobile.postaMensagem());}
+                                else if (membro.getFuncao() == TiposMembros.Heavy_Lifters) {membro.setMensagem(heavy.postaMensagem());}
+                                else if (membro.getFuncao() == TiposMembros.Script_Guys) {membro.setMensagem(script.postaMensagem());}
+                                else if (membro.getFuncao() == TiposMembros.Big_Brothers) {membro.setMensagem(big.postaMensagem());}
                             }
                         }
-                        System.out.println("Novo Horário :" + Membros.get(0).getHorario());
-                    } else{break;}
+                        System.out.println("Novo Horário : " + Membros.get(0).getHorario());
+                    } else if ((escolha.equals("n"))){break;}
                     menu();
                 case 5:
                     System.out.println("Digite o nome do usuário que quer remover:");
@@ -130,12 +141,22 @@ public class Sistema {
                     menu();
                 case 6:
                     for (Membro membro : Membros){
-                        membro.usuarios();
+                        System.out.println(membro.usuarios());
                     }
+                    menu();
+                case 7:
+                    FileWriter fileWriter = new FileWriter("arquivo_super_Secreto_nao_abrir.csv", true);
+                    fileWriter.write("===MEMBROS===");
+                    fileWriter.append("Items:"+"\n");
+                    for (Membro membro : Membros) {
+                        fileWriter.append(membro.usuarios());
+                    }
+                    fileWriter.close();
                     menu();
                 default:
                     System.out.println("Digite uma opção válida!");
             }
         }while (opcao != 0);
+        System.out.println("Sistem Encerrado com sucesso!");
     }
 }
