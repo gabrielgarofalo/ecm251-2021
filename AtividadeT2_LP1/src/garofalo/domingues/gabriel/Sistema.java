@@ -15,6 +15,7 @@ public class Sistema {
      * Inicialização dos atributos necessários
      */
     private Scanner scanner;
+    Turnos horario = Turnos.Regular;
     ArrayList<Membro> Membros = new ArrayList<Membro>();
     private Mobile_Members mobile;
     private Heavy_Lifters heavy;
@@ -34,7 +35,7 @@ public class Sistema {
      */
     public void menu() throws Exception{
         /**
-         * Opções Disponíveis para o usuário
+         * Opções Disponíveis para o usuários o horário atual
          */
         System.out.println("Bem-Vindo!");
         System.out.println("Escolha uma das opções:");
@@ -46,6 +47,7 @@ public class Sistema {
         System.out.println("6 - Listagem dos usuários");
         System.out.println("7 - Gerar arquivo com membros");
         System.out.println("0 - Sair");
+        System.out.println("Horário Atual: " + horario);
         System.out.println("Opção desejada:");
         int opcao = scanner.nextInt();
         do {
@@ -129,6 +131,7 @@ public class Sistema {
                     String escolha = scanner.next();
                     if (escolha.equals("s")) {
                         if (Membros.get(0).getHorario() == Turnos.Regular) {
+                            horario = Turnos.Extra;
                             for (Membro membro : Membros) {
                                 membro.setHorario(Turnos.Extra);
                                 if (membro.getFuncao() == TiposMembros.Mobile_Members) {membro.setMensagem(mobile.postaMensagem());}
@@ -137,6 +140,7 @@ public class Sistema {
                                 else if (membro.getFuncao() == TiposMembros.Big_Brothers) {membro.setMensagem(big.postaMensagem());}
                             }
                         } else {
+                            horario = Turnos.Regular;
                             for (Membro membro : Membros) {
                                 membro.setHorario(Turnos.Regular);
                                 if (membro.getFuncao() == TiposMembros.Mobile_Members) {membro.setMensagem(mobile.postaMensagem());}
