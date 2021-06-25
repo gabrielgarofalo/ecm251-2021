@@ -169,12 +169,13 @@ public class Sistema {
                 case 7:
                     int id = 0;
                     FileWriter fileWriter = new FileWriter("arquivo_super_Secreto_nao_abrir.csv", true);
-                    fileWriter.write("===MEMBROS===");
+                    fileWriter.write("MEMBROS: \n");
                     for (Membro membro : Membros) {
                         id += 1;
-                        fileWriter.append(membro.getFuncao() + membro.getNome_usuario() + id);
+                        fileWriter.append(membro.getFuncao() + " ; " + membro.getNome_usuario() + " ; " + id + "\n");
                     }
                     fileWriter.close();
+                    System.out.println("Arquivo gerado com sucesso!");
                     menu();
                 default:
                     System.out.println("Digite uma opção válida!");
