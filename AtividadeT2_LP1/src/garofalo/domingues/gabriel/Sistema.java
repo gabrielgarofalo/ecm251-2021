@@ -11,19 +11,31 @@ import garofalo.domingues.gabriel.interfaces.PostarMensagem;
 import garofalo.domingues.gabriel.models.*;
 
 public class Sistema {
+    /**
+     * Inicialização dos atributos necessários
+     */
     private Scanner scanner;
     ArrayList<Membro> Membros = new ArrayList<Membro>();
     private Mobile_Members mobile;
     private Heavy_Lifters heavy;
     private Script_Guys script;
     private Big_Brothers big;
-    
+
+    /**
+     * Inicia o sistema e exibe o menu
+     */
     public Sistema() throws Exception {
         scanner = new Scanner(System.in);
         menu();
     }
 
+    /**
+     * Metódo que exibe o menu e decide o que fazer baseado no input do usuário
+     */
     public void menu() throws Exception{
+        /**
+         * Opções Disponíveis para o usuário
+         */
         System.out.println("Bem-Vindo!");
         System.out.println("Escolha uma das opções:");
         System.out.println("1 - Registrar Membros");
@@ -38,6 +50,16 @@ public class Sistema {
         int opcao = scanner.nextInt();
         do {
             switch (opcao) {
+                /**
+                 * Caso o input seja 0, o sistema se encerrará com status 0
+                 * Caso o input seja 1, o sistema inicializará um novo membro e cria outro case para escolher o tipo de membro e inputar seu nome e email
+                 * Caso o input seja 2, o sistema pede o nome do usuário e mostra o horário de trabalho desse membro
+                 * Caso o input seja 3, o sistema posta a mensagem de cada membro baseado no turno
+                 * Caso o input seja 4, o sistema pergunta uma confirmação e se confirmado muda o turno
+                 * Caso o input seja 5, o sistema pergunta o nome de um usuário e o remove da lista de membros
+                 * Caso o input seja 6, o sistema exibe uma lista com todas as informações de todos os membros presentes
+                 * Caso o input seja 7, o sistema cria um arquivo csv com a função, nome e id do membro
+                 */
                 case 0:
                     System.exit(0);
                 case 1:
@@ -145,10 +167,12 @@ public class Sistema {
                     }
                     menu();
                 case 7:
+                    int id = 0;
                     FileWriter fileWriter = new FileWriter("arquivo_super_Secreto_nao_abrir.csv", true);
                     fileWriter.write("===MEMBROS===");
                     for (Membro membro : Membros) {
-                        fileWriter.append(membro.usuarios());
+                        id += 1;
+                        fileWriter.append(membro.getFuncao() + membro.getNome_usuario() + id);
                     }
                     fileWriter.close();
                     menu();

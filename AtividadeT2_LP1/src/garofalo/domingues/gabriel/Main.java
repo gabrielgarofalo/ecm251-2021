@@ -6,6 +6,9 @@ package garofalo.domingues.gabriel;
 public class Main {
 
     public static void main(String[] args) throws Exception {
+        /**
+         * Inicializa o sistema
+         */
         Sistema sistema = new Sistema();
         sistema.menu();
     }
