@@ -3,6 +3,7 @@ package garofalo.domingues.gabriel;
 import java.util.Scanner;
 import java.util.ArrayList;
 
+import garofalo.domingues.gabriel.enumeracao.Turnos;
 import garofalo.domingues.gabriel.interfaces.PostarMensagem;
 import garofalo.domingues.gabriel.models.*;
 
@@ -25,6 +26,7 @@ public class Sistema {
         System.out.println("1 - Registrar Membros");
         System.out.println("2 - Informar Horário de Trabalho");
         System.out.println("3 - Postar Mensagem");
+        System.out.println("4 - Mudar Horário de Trabalho");
         System.out.println("0 - Sair");
         System.out.println("Opção desejada:");
         int opcao = scanner.nextInt();
@@ -92,6 +94,23 @@ public class Sistema {
                     for (Membro membro : Membros) {
                         System.out.println(membro.getNome_usuario() + " : " + membro.getMensagem());
                     }
+                    menu();
+                case 4:
+                    System.out.println("Horário Atual :" + Membros.get(0).getHorario());
+                    System.out.println("Deseja mesmo mudar o horário? (s/n)");
+                    String escolha = scanner.next();
+                    if (escolha.equals('y')) {
+                        if (Membros.get(0).getHorario() == Turnos.Regular) {
+                            for (Membro membro : Membros) {
+                                membro.setHorario(Turnos.Extra);
+                            }
+                        } else {
+                            for (Membro membro : Membros) {
+                                membro.setHorario(Turnos.Regular);
+                            }
+                        }
+                        System.out.println("Novo Horário :" + Membros.get(0).getHorario());
+                    } else{break;}
                     menu();
                 default:
                     System.out.println("Digite uma opção válida!");

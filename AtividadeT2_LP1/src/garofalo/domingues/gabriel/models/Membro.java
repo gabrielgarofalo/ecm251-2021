@@ -25,6 +25,10 @@ public abstract class Membro{
         return horario;
     }
 
+    public void setHorario(Turnos horario) {
+        this.horario = horario;
+    }
+
     public String getMensagem() {
         return mensagem;
     }
