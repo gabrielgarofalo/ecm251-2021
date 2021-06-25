@@ -2,6 +2,7 @@ package garofalo.domingues.gabriel.models;
 
 import garofalo.domingues.gabriel.enumeracao.TiposMembros;
 import garofalo.domingues.gabriel.enumeracao.Turnos;
+import garofalo.domingues.gabriel.interfaces.Apresentacao;
 import garofalo.domingues.gabriel.interfaces.PostarMensagem;
 
 public class Mobile_Members extends Membro implements PostarMensagem {

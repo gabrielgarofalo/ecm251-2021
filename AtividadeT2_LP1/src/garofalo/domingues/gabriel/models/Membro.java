@@ -2,8 +2,9 @@ package garofalo.domingues.gabriel.models;
 
 import garofalo.domingues.gabriel.enumeracao.TiposMembros;
 import garofalo.domingues.gabriel.enumeracao.Turnos;
+import garofalo.domingues.gabriel.interfaces.Apresentacao;
 
-public abstract class Membro{
+public abstract class Membro implements Apresentacao {
     protected String nome_usuario;
     protected String email;
     protected TiposMembros funcao;
@@ -38,13 +39,12 @@ public abstract class Membro{
     }
 
     @Override
-    public String toString() {
+    public String usuarios() {
         return "Membro{" +
                 "nome_usuario='" + nome_usuario + '\'' +
                 ", email='" + email + '\'' +
                 ", funcao=" + funcao +
                 ", horario=" + horario +
-                ", mensagem='" + mensagem + '\'' +
                 '}';
     }
 }

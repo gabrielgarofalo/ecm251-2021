@@ -1,5 +1,6 @@
 package garofalo.domingues.gabriel;
 
+import java.sql.SQLOutput;
 import java.util.Scanner;
 import java.util.ArrayList;
 
@@ -27,6 +28,8 @@ public class Sistema {
         System.out.println("2 - Informar Horário de Trabalho");
         System.out.println("3 - Postar Mensagem");
         System.out.println("4 - Mudar Horário de Trabalho");
+        System.out.println("5 - Remover Membros");
+        System.out.println("6 - Listagem dos usuários");
         System.out.println("0 - Sair");
         System.out.println("Opção desejada:");
         int opcao = scanner.nextInt();
@@ -111,6 +114,24 @@ public class Sistema {
                         }
                         System.out.println("Novo Horário :" + Membros.get(0).getHorario());
                     } else{break;}
+                    menu();
+                case 5:
+                    System.out.println("Digite o nome do usuário que quer remover:");
+                    String delusuario = scanner.next();
+                    Membro achou = null;
+                    for (Membro membro : Membros) {
+                        if (delusuario.equals(membro.getNome_usuario())) {
+                            achou = membro;
+                            break;
+                        }
+                    }
+                    Membros.remove(achou.getNome_usuario());
+                    System.out.println("Usuário deletado com sucesso!");
+                    menu();
+                case 6:
+                    for (Membro membro : Membros){
+                        membro.usuarios();
+                    }
                     menu();
                 default:
                     System.out.println("Digite uma opção válida!");
