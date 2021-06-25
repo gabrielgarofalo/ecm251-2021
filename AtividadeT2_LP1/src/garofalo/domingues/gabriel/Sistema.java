@@ -147,7 +147,6 @@ public class Sistema {
                 case 7:
                     FileWriter fileWriter = new FileWriter("arquivo_super_Secreto_nao_abrir.csv", true);
                     fileWriter.write("===MEMBROS===");
-                    fileWriter.append("Items:"+"\n");
                     for (Membro membro : Membros) {
                         fileWriter.append(membro.usuarios());
                     }
