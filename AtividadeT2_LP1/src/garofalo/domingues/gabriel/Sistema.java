@@ -158,7 +158,7 @@ public class Sistema {
                             break;
                         }
                     }
-                    Membros.remove(achou.getNome_usuario());
+                    Membros.remove(achou);
                     System.out.println("Usuário deletado com sucesso!");
                     menu();
                 case 6:
